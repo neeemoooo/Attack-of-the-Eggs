@@ -1,0 +1,38 @@
+{
+  "compilerOptions": {
+    /* Basic Options */
+    "target": "ES6",                          // Target JavaScript version. ES6 is commonly used.
+    "module": "ESNext",                     // Module system for Node.js. Use "esnext" for modern modules in browsers.
+    "lib": ["ES6", "DOM"],                    // Specify library files to include in the compilation.
+    "allowJs": true,                          // Allow JavaScript files to be compiled.
+    "checkJs": false,                         // Report errors in .js files (useful with allowJs).
+    "jsx": "preserve",                        // JSX support in React. Use "react" for outputting JSX.
+    "sourceMap": true,                        // Generates a source map for debugging.
+    
+    /* Strict Type-Checking Options */
+    "strict": true,                           // Enable all strict type-checking options.
+    "noImplicitAny": true,                    // Warn on expressions and declarations with an implied 'any' type.
+    "strictNullChecks": true,                 // Enable strict null checks.
+    "strictFunctionTypes": true,              // Ensure function types are strict.
+    "strictBindCallApply": true,              // Ensure method calls are strictly typed.
+    
+    /* Module Resolution Options */
+    "moduleResolution": "node",               // TypeScript will mimic Node.js resolution.
+    "esModuleInterop": true,                  // Enables compatibility with ES module-style imports in CommonJS modules.
+    "forceConsistentCasingInFileNames": true, // Ensure that file name casing is correct across the whole project.
+
+    /* Output Options */
+    "outDir": "./dist",                       // Output directory for compiled files.
+    "rootDir": "./src",                       // Root directory for TypeScript files.
+    
+    /* Experimental Options */
+    "resolveJsonModule": true,                // Enable importing .json files.
+    "isolatedModules": true                   // Ensure TypeScript files are compiled in isolation.
+
+    /* Additional Options */
+    // "removeComments": true,                // Remove comments from the output files.
+    // "noEmitOnError": true,                 // Prevent emitting if there are errors.
+  },
+  "include": ["src/**/*"],                     // Files to include for compilation.
+  "exclude": ["node_modules", "dist"]          // Folders to exclude from compilation.
+}

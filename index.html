@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/dist/main.css" />
+    <link rel="apple-touch-icon" sizes="180x180" href="./images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./images/favicon-16x16.png">
+
+    <meta property="og:title" content="Attack of the Egs: Eggstreme Battle!"/>
+    <meta property="og:description" content="Crack the monster eggs by typing the letters inside them."/>
+    <meta property="og:image" content="./images/large-og-image.png"/>
+    <meta property="og:url" content="https://attackoftheEggs.netlify.app/" />
+    <meta property="og:site_name" content="Attack of the Egs: Eggstreme Battle!" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image:alt" content="Attack of the Egs: Eggstreme Battle!" />
+
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-app.js" type="module"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-analytics.js" type="module"></script>
+    <title>Attack of the Eggs</title>
+  </head>
+  <body>
+    <main class="min-h-[100vh] min-w-[100vw] flex bg-black bg-mainBg bg-cover bg-no-repeat bg-center">
+
+        <section class="flex flex-col flex-1 relative overflow-hidden" id="game-canvas">
+          <header class="p-8 flex justify-between items-center" id="game-options-element">
+            <div>
+              <select class="bg-transparent text-white text-2xl font-extrabold cursor-pointer" id="game-difficulty-select">
+                <option value=1000 class="text-black font-bold" selected>easy</option>
+                <option value=800 class="text-black font-bold">medium</option>
+                <option value=500 class="text-black font-bold">hard</option> 
+              </select>
+            </div>
+            <p class="font-bold text-white text-2xl" id="player-score">0</p>
+            <p class="flex items-center gap-x-4">
+              <img src="./images/heart.png" alt="" height="30" width="31"> 
+              <span class="font-bold text-white text-2xl" id="player-lives">0</span>
+            </p>
+          </header>
+
+            <img src="./images/dagger.png" alt="" class="character-part absolute bottom-0 left-[50%] translate-x-[-150%]  transition-all duration-300" id="dagger-left">
+            <img src="./images/dagger.png" alt="" class="character-part absolute bottom-0 left-[50%] translate-x-[40%]  transition-all duration-300" id="dagger-right">
+          <section class="flex justify-center items-end flex-1">
+            <img src="./images/characterLeftHand.png" alt="" class="character-part translate-x-12 z-20 origin-top-right transition-all" id="hand-left">
+            <img src="./images/playerCharacter.png" alt="" class="character-part">
+            <img src="./images/characterRightHand.png" alt="" class="character-part -translate-x-[53px] origin-top-left transition-all" id="hand-right">
+          </section>
+      </section>
+
+      <aside class="w-[380px] flex flex-col gap-y-4 bg-black/80 overflow-hidden" id="leader-board-element">
+        <h2 class="p-4 font-extrabold text-white text-4xl uppercase">leaderboard</h2>
+        <ul class="flex-1 flex-col gap-y-4" id="leader-board-list-element">
+        </ul>
+
+        <section class="p-4 flex items-center gap-x-4 border-t-2 border-white">
+          <div class="h-[40px] w-[40px] rounded-full bg-slate-900 border-2 border-white" id="player-profile-display-element"></div>
+          <span class="font-extrabold text-2xl text-white uppercase overflow-hidden w-[11ch] text-ellipsis text-nowrap" id="player-name-display-element">player</span> 
+        </section>
+      </aside>
+
+      <section class="h-[100%] w-[100%] flex-col items-center justify-center gap-y-4 absolute bg-black/80 z-40 hidden" id="game-over-board">
+        <h3 class="font-extrabold  text-3xl text-white capitalize">game over</h3>
+        <p class="font-extrabold  text-3xl text-white capitalize">score:<span class="text-red-700" id="final-user-score">0</span></p>
+        <button class="p-4 cursor-pointer font-extrabold text-3xl text-white rounded-md capitalize border-4 border-red-700" id="play-again-btn">play again</button>
+      </section>
+
+      <section class="h-[100%] w-[100%] flex-col items-center justify-center gap-y-4 absolute bg-black/80 z-40 hidden" id="game-start-board">
+        <div class="mb-8 flex flex-col justify-center gap-y-4" id="player-info-section">
+          <input type="text" placeholder="player name..." class="p-2 font-bold text-xl text-white rounded-md uppercase bg-transparent border-2 border-red-700 border-ridge" id="player-name">
+          <div class="flex items-center gap-x-4">
+            <label class="text-xl text-white font-bold uppercase" for="profile-color">profile color: </label>
+            <input type="color" class="colorPicker" id="profile-color" value="#006EFF">
+          </div>
+        </div>
+        <h1 class="font-extrabold  text-3xl text-red-700 capitalize">attack of the eggs</h1>
+        <p class="w-[30ch] font-normal text-3xl text-white capitalize">pop the eggs by typing the letter that is showing on top of them</p>
+        <button class="p-4 cursor-pointer font-extrabold text-3xl text-white rounded-md capitalize border-4 border-red-700" id="start-game-btn">start game</button>
+      </section>
+
+    </main>
+    <script src="/dist/index.js" type="module"></script>
+  </body>
+</html>

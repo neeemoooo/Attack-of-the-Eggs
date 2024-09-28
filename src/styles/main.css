@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    body {
+        @apply font-mainFont;
+    }
+}
+
+@layer components {
+    .fallingEgg {
+        animation: fallingEgg 3s forwards linear;
+    }
+    .colorPicker {  
+        cursor: pointer;
+        height: 40px;
+        width: 40px;
+        border:0;
+        padding:0;
+        margin:0;
+        background-color:transparent;
+    }
+    .colorPicker::-webkit-color-swatch {
+        margin: 0;
+        padding: 0;
+        border: none;
+        border-radius:50%;
+    }
+    .colorPicker::-webkit-color-swatch-wrapper {
+        padding:0;
+        margin:0;
+    }
+}
+
+@layer utilities {
+    .border-ridge {
+        border-style:ridge;
+    }
+}
+
+@keyframes fallingEgg {
+    0% {
+        top:0%;
+    }
+
+    100% {
+        top:100%;
+    }
+}

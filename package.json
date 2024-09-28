@@ -1,0 +1,23 @@
+{
+  "name": "attackoftheeggs",
+  "version": "1.0.0",
+  "main": "./dist/index.js",
+  "scripts": {
+    "build:css": "tailwindcss -i ./src/styles/main.css -o ./dist/main.css",
+    "build:ts": "tsc",
+    "build": "npm run build:css && npm run build:ts",
+    "watch:css": "tailwindcss -i ./src/styles/main.css -o ./dist/main.css --watch",
+    "watch:ts": "tsc --watch",
+    "watch": "npm run watch:css & npm run watch:ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.47",
+    "tailwindcss": "^3.4.12",
+    "typescript": "^5.6.2"
+  }
+}
